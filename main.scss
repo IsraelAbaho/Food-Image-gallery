@@ -1,0 +1,256 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+:root {
+  --primaryColor: #11255e;
+  --BgColor: #e5f0f5;
+  --whiteColor: #fdfdfd;
+}
+
+body {
+  background-color: var(--BgColor);
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}
+
+header {
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  width: 100%;
+
+  .logoDiv .logo {
+    width: 50px;
+    cursor: pointer;
+  }
+
+  .toggleIcon {
+    width: 30px;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navBar {
+    position: absolute;
+    top: -300%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: var(--primaryColor);
+    color: var(--whiteColor);
+    padding: 2rem;
+    text-align: center;
+    transition: 0.5s;
+
+    .navItem {
+      padding: 0.5rem 0;
+    }
+  }
+  .showNavBar {
+    top: 0;
+  }
+}
+.navLink {
+  color: var(--whiteColor);
+  font-size: 20px;
+  font-weight: bold;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0%;
+    background: var(--whiteColor);
+    bottom: -8px;
+    left: 0;
+    border-radius: 3rem;
+    transition: 0.3s;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+// CONTAINER SCSS
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  flex-direction: column;
+  padding-top: 5rem;
+
+  .row {
+    display: grid;
+    gap: 2rem;
+
+    .text-col {
+      padding: 0 2rem;
+      text-align: left;
+      span {
+        font-weight: bold;
+        text-transform: uppercase;
+        color: var(--primaryColor);
+        padding: 0.5rem 0;
+        display: inline-block;
+      }
+
+      h1 {
+        font-size: 2rem;
+        color: var(--primaryColor);
+        padding-bottom: 1rem;
+      }
+
+      button {
+        padding: 0.8rem 1.4rem;
+        border-radius: 3rem;
+        background: var(--primaryColor);
+        color: var(--whiteColor);
+        font-weight: bold;
+        border: none;
+        outline: none;
+        font-size: 15px;
+        transition: background 0.3s;
+        &:hover {
+          background: var(--whiteColor);
+          color: var(--primaryColor);
+        }
+      }
+    }
+
+    .img-col {
+      padding: 0 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      img {
+        border: 10px solid rgba(105, 105, 105, 0.15);
+        object-fit: cover;
+      }
+
+      .mainImage {
+        width: 100%;
+        height: 400px;
+        max-width: 900px;
+      }
+    }
+    .controls {
+      margin: 1rem auto;
+
+      .btn {
+        content: "";
+        width: 15px;
+        height: 15px;
+        background: rgba(105, 105, 105, 0.15);
+        border-radius: 50%;
+        margin: 0 2px;
+        display: inline-flex;
+      }
+
+      .active {
+        background: var(--primaryColor);
+      }
+    }
+  }
+}
+
+// LET MAKE THIS WEBSITE RESPONSIVE ------------------------------------>
+
+@media screen and (min-width: 568px) {
+  .row {
+    gap: 2rem;
+    .text-col {
+      text-align: center !important;
+      span {
+        font-size: 1.2rem !important;
+      }
+      h1 {
+        font-size: 3rem !important;
+      }
+      button {
+        font-size: 18px !important;
+      }
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  .navBar {
+    .navList {
+      display: flex;
+
+      .navItem {
+        margin: 0 1rem;
+
+        .navLink {
+          color: var(--primaryColor);
+        }
+      }
+    }
+  }
+
+  .toggleDiv {
+    display: none;
+  }
+
+  header {
+    padding: 2rem;
+  }
+
+  .container {
+    padding-top: 7rem !important;
+  }
+}
+@media screen and (min-width: 960px) {
+  .row {
+    gap: 2rem;
+    grid-template-columns: repeat(2,1fr);
+    align-items: center;
+    .text-col {
+      text-align: center !important;
+      
+      span {
+        font-size: 1.2rem !important;
+      }
+      h1 {
+        font-size: 3rem !important;
+      }
+      button {
+        font-size: 18px !important;
+      }
+    }
+  }
+}
+@media screen and (min-width: 1125px) {
+  .text-col {
+    text-align: left !important;
+    align-self: left !important;
+    
+}
+}
+
+
